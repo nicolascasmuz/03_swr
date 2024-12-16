@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import useSWR from "swr";
+import { useMe } from "../lib/hooks";
 
 async function fetcher(id) {
   const res = await fetch(id);
@@ -17,9 +18,14 @@ function useData() {
 }
 
 const Home: NextPage = () => {
-  const data: any = useData();
+  // const data: any = useData();
+  const data: any = useMe();
 
-  return <div>Data: {JSON.stringify(data)}</div>;
+  if (data) {
+    return <div>Data: {JSON.stringify(data)}</div>;
+  } else {
+    return <div>No data</div>;
+  }
 };
 
 export default Home;
