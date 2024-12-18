@@ -1,32 +1,13 @@
 import type { NextPage } from "next";
-import useSWR from "swr";
-import { useMe } from "../lib/hooks";
-import { useProduct } from "../lib/hooks";
-
-async function fetcher(id) {
-  const res = await fetch(id);
-  const user = await res.json();
-  return user;
-}
-
-function useData() {
-  const { data, error } = useSWR(
-    "https://jsonplaceholder.typicode.com/users/1",
-    fetcher
-  );
-
-  return data;
-}
+import MainLayout from "../components/main-layout";
+import Product from "../components/product";
 
 const Home: NextPage = () => {
-  const data: any = useData();
-  // const data: any = useMe();
-
-  if (data) {
-    return <div>Data: {JSON.stringify(data)}</div>;
-  } else {
-    return <div>No data</div>;
-  }
+  return (
+    <MainLayout>
+      <Product />
+    </MainLayout>
+  );
 };
 
 export default Home;
