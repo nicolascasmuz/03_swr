@@ -3,6 +3,7 @@ import { useProduct } from "../../lib/hooks";
 
 export default function Product() {
   const data: any = useProduct("recWFrRWzLgoTF9Pl");
+  console.log("Price: ", data?.price, "Type: ", typeof data?.price);
 
   return (
     <div className={styles["card-comp"]}>

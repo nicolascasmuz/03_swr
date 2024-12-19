@@ -6,7 +6,7 @@ export default function MainLayout({ children }: any) {
 
   return (
     <div>
-      <header className={styles.header}>Email: {JSON.stringify(data)}</header>
+      <header className={styles.header}>{data?.email}</header>
       <div>{children}</div>
       <footer className={styles.footer} />
     </div>

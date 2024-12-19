@@ -16,6 +16,14 @@ export async function fetchAPI(id) {
     res = response;
   }
 
+  /*   const response = await fetch(BASE_URL + id, {
+    headers: {
+      authorization:
+        "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJ4cUtiS0hoZWpweEJiT0JLdHdsaSIsImlhdCI6MTczMjcxMzYyNH0.3-Ku-Bbt4fzJeBltJuwJsDWothM2SjiEIDVdXVDfIQA",
+    },
+  });
+  res = response; */
+
   const status = res.status.toString();
 
   if (status.charAt(0) == "4") {
