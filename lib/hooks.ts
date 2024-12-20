@@ -23,3 +23,14 @@ export function useProduct(productID: string) {
 
   return data;
 }
+
+export function useAuth() {
+  const { data, error } = useSWRImmutable("auth", fetchAPI);
+
+  if (error) {
+    console.error(error);
+    return null;
+  }
+
+  return data;
+}

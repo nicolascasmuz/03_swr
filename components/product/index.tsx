@@ -2,7 +2,7 @@ import styles from "./product.module.css";
 import { useProduct } from "../../lib/hooks";
 
 export default function Product() {
-  const data: any = useProduct("recWFrRWzLgoTF9Pl");
+  const data: any = useProduct("recZcS0VTPpLdQqRs");
   console.log("Price: ", data?.price, "Type: ", typeof data?.price);
 
   return (
