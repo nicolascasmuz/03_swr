@@ -3,7 +3,7 @@ const BASE_URL = "https://desafio-ecommerce-backend-nc.vercel.app/api/";
 export async function fetchAPI(id) {
   let res;
 
-  if (id == "me") {
+  if (id.split("/")[0] == "me") {
     const response = await fetch(BASE_URL + id, {
       headers: {
         authorization:
@@ -11,17 +11,13 @@ export async function fetchAPI(id) {
       },
     });
     res = response;
-  } else if (id == "auth") {
+  } else if (id.split("/")[0] == "products") {
+    const response = await fetch(BASE_URL + id);
+    res = response;
+  } else if (id.split("/")[0] == "swr-auth") {
     const response = await fetch(BASE_URL + id, {
       method: "POST",
-      body: JSON.stringify({
-        email: "mario-navarro@fastmail.com",
-      }),
     });
-    console.log("res: ", response);
-    res = response;
-  } else {
-    const response = await fetch(BASE_URL + id);
     res = response;
   }
 

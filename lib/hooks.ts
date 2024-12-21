@@ -24,8 +24,8 @@ export function useProduct(productID: string) {
   return data;
 }
 
-export function useAuth() {
-  const { data, error } = useSWRImmutable("auth", fetchAPI);
+export function useAuth(email) {
+  const { data, error } = useSWR(`swr-auth/${email}`, fetchAPI);
 
   if (error) {
     console.error(error);

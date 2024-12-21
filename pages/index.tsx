@@ -6,7 +6,7 @@ import Login from "components/login";
 const Home: NextPage = () => {
   return (
     <MainLayout>
-      <Login />
+      <Product />
     </MainLayout>
   );
 };
