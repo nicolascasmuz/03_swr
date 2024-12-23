@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
 import MainLayout from "../components/main-layout";
-import Product from "../components/product";
-import Login from "components/login";
+import Login from "./login";
 
 const Home: NextPage = () => {
   return (
     <MainLayout>
-      <Product />
+      <Login />
     </MainLayout>
   );
 };

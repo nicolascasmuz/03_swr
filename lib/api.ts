@@ -19,6 +19,15 @@ export async function fetchAPI(id) {
       method: "POST",
     });
     res = response;
+  } else if (id.split("/")[0] == "auth" && id.split("/")[1] == "token") {
+    const response = await fetch(BASE_URL + id, {
+      method: "POST",
+      body: JSON.stringify({
+        email: "mario-navarro@fastmail.com",
+        code: 43749,
+      }),
+    });
+    res = response;
   }
 
   const status = res.status.toString();
