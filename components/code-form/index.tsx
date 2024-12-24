@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "./code-form.module.css";
-import { useCode } from "../../lib/hooks";
+import { getToken } from "lib/api";
 
 export default function CodeForm() {
+  /* const stringEmail = localStorage.getItem("saved-state");
   const [code, setCode] = useState("");
 
-  const token = useCode(code);
-
-  useEffect(() => {
-    if (token) {
-      console.log("token: ", token);
-    }
-  }, [token]);
+  getToken(stringEmail, code);
 
   const HandleCodeSubmit = async (e) => {
     e.preventDefault();
@@ -21,14 +16,12 @@ export default function CodeForm() {
     if (codeValue) {
       setCode(codeValue);
     }
-  };
+  }; */
 
   return (
-    <div>
-      <form className={styles["code-form"]} onSubmit={HandleCodeSubmit}>
-        <input className={styles["code-input"]} type="text" name="code" />
-        <button className={styles["code-button"]}>Ingresar</button>
-      </form>
-    </div>
+    <form className={styles["code-form"]}>
+      <input className={styles["code-input"]} type="text" name="code" />
+      <button className={styles["code-button"]}>Ingresar</button>
+    </form>
   );
 }

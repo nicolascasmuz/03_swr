@@ -2,8 +2,8 @@ import useSWR from "swr";
 import useSWRImmutable from "swr";
 import { fetchAPI } from "./api";
 
-export function useMe() {
-  const { data, error } = useSWR("me", fetchAPI);
+/* export function useMe() {
+  const { data, error } = useSWR("/me", fetchAPI);
 
   if (error) {
     console.error(error);
@@ -24,9 +24,20 @@ export function useProduct(productID: string) {
   return data;
 }
 
-export function useAuth(email) {
+ export function useAuth(email) {
+  const { data, error } = useSWRImmutable(email ? "/auth" : null, fetchAPI);
+
+  if (error) {
+    console.error(error);
+    return null;
+  }
+
+  return data;
+}
+
+export function useCode(email, code) {
   const { data, error } = useSWRImmutable(
-    email ? `swr-auth/${email}` : null,
+    email && code ? `swr-code/?email=${email}&code=${code}` : null,
     fetchAPI
   );
 
@@ -36,15 +47,4 @@ export function useAuth(email) {
   }
 
   return data;
-}
-
-export function useCode(code) {
-  const { data, error } = useSWRImmutable(code ? `auth/token` : null, fetchAPI);
-
-  if (error) {
-    console.error(error);
-    return null;
-  }
-
-  return data;
-}
+} */
