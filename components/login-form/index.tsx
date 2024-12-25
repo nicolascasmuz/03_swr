@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./login-form.module.css";
-import { sendCode, getToken } from "lib/api";
+import { sendCode, saveToken } from "lib/api";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -26,7 +26,8 @@ export default function LoginForm() {
     const codeValue = e.target.code.value;
 
     if (codeValue) {
-      getToken(email, codeValue);
+      saveToken(email, codeValue);
+      router.push("/users");
     }
   };
 
