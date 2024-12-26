@@ -61,6 +61,7 @@ export async function fetchAPI(input?: RequestInfo, options?) {
 
   if (res.status >= 200 && res.status < 300) {
     const data = await res.json();
+    console.log("data: ", data);
     return data;
   } else {
     throw new Error(`Hubo un error ${res.status}: ${res.statusText}`);
