@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import styles from "./product.module.css";
 
 export default function Product() {
   const router = useRouter();
@@ -14,9 +15,9 @@ export default function Product() {
   };
 
   return (
-    <form onSubmit={HandleSubmit}>
-      <input type="text" name="id"></input>
-      <button>Buscar</button>
+    <form className={styles.form} onSubmit={HandleSubmit}>
+      <input className={styles.input} type="text" name="id"></input>
+      <button className={styles.button}>Buscar</button>
     </form>
   );
 }
