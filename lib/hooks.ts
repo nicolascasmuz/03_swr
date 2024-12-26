@@ -13,8 +13,8 @@ export function useMe() {
   return data;
 }
 
-/* export function useProduct(productID: string) {
-  const { data, error } = useSWRImmutable(`products/${productID}`, fetchAPI);
+export function useProduct(productID: string) {
+  const { data, error } = useSWRImmutable(`/products/${productID}`, fetchAPI);
 
   if (error) {
     console.error(error);
@@ -22,4 +22,4 @@ export function useMe() {
   }
 
   return data;
-} */
+}

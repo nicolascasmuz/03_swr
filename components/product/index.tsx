@@ -1,18 +1,22 @@
-import styles from "./product.module.css";
-import { useProduct } from "../../lib/hooks";
+import { useRouter } from "next/router";
 
 export default function Product() {
-  const data: any = useProduct("recZcS0VTPpLdQqRs");
+  const router = useRouter();
+
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+
+    const idValue = e.target.id.value;
+
+    if (idValue) {
+      router.push(`/product/${idValue}`);
+    }
+  };
 
   return (
-    <div className={styles["card-comp"]}>
-      <h3 className={styles["card-title"]}>{data?.name}</h3>
-      <img
-        src={data?.pic}
-        alt={data?.name.toLowerCase().replaceAll(" ", "-")}
-        className={styles["card-img"]}
-      />
-      <h4 className={styles["card-price"]}>${data?.price}</h4>
-    </div>
+    <form onSubmit={HandleSubmit}>
+      <input type="text" name="id"></input>
+      <button>Buscar</button>
+    </form>
   );
 }

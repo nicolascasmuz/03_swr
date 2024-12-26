@@ -76,7 +76,6 @@ export async function sendCode(email: string) {
       },
       body: JSON.stringify({ email }),
     });
-    localStorage.removeItem("saved-state");
   }
 }
 
