@@ -12,7 +12,7 @@ export default function MainLayout({ children }: any) {
   }
 
   return (
-    <div>
+    <div className={styles.div}>
       <header className={styles.header}>{data?.email}</header>
       <div>{children}</div>
       <footer className={styles.footer} />
